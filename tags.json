@@ -201,6 +201,12 @@
     "create",
     "new"
   ],
+  "bell-ring": [
+    "alarm",
+    "notification",
+    "sound",
+    "reminder"
+  ],
   "bike": [
     "bicycle",
     "transport",
@@ -324,6 +330,9 @@
   "check-circle": [
     "done"
   ],
+  "check-circle-2": [
+    "done"
+  ],
   "check-square": [
     "done"
   ],
@@ -382,10 +391,19 @@
     "copied",
     "pasted"
   ],
+  "clipboard-copy": [
+    "copied",
+    "pasted",
+    "to"
+  ],
   "clipboard-list": [
     "copy",
     "paste",
     "tasks"
+  ],
+  "clipboard-x": [
+    "discard",
+    "remove"
   ],
   "clock": [
     "time",
@@ -776,6 +794,11 @@
     "field",
     "text"
   ],
+  "forward": [
+    "send",
+    "to",
+    "email"
+  ],
   "framer": [
     "logo",
     "design",
@@ -787,6 +810,10 @@
     "bad",
     "sad",
     "emotion"
+  ],
+  "function-square": [
+    "program",
+    "execute"
   ],
   "gamepad": [
     "console"
@@ -884,6 +911,9 @@
     "mouse",
     "grab"
   ],
+  "hand-metal": [
+    "rock"
+  ],
   "hard-drive": [
     "computer",
     "server",
@@ -956,6 +986,9 @@
   "image-plus": [
     "add",
     "create"
+  ],
+  "import": [
+    "include"
   ],
   "inbox": [
     "email"
@@ -1149,6 +1182,11 @@
     "fullscreen",
     "arrows",
     "expand"
+  ],
+  "megaphone": [
+    "advertisement",
+    "display",
+    "ads"
   ],
   "meh": [
     "emoji",
@@ -1474,6 +1512,12 @@
   "repeat-1": [
     "replay"
   ],
+  "reply": [
+    "email"
+  ],
+  "reply-all": [
+    "email"
+  ],
   "rewind": [
     "music"
   ],
@@ -1685,6 +1729,10 @@
     "phone",
     "cellphone",
     "device"
+  ],
+  "smartphone-charging": [
+    "zap",
+    "battery"
   ],
   "smile": [
     "emoji",
@@ -1970,6 +2018,9 @@
   "users": [
     "group",
     "people"
+  ],
+  "vibrate": [
+    "notification"
   ],
   "video": [
     "camera",
