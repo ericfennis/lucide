@@ -16,6 +16,8 @@ if(process.env['INPUT']) {
   input[entry] = entries[entry]
 }
 
+console.log(process.env );
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), viteSingleFile()],
