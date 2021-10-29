@@ -4,9 +4,7 @@
   "license": "ISC",
   "main": "src/main.js",
   "scripts": {
-    "dev": "vite",
-    "dev:worker": "INPUT=worker vite --port=4000",
-    "dev:interface": "INPUT=interface vite --port=8000",
+    "dev": "vite --host=localhost --port=3000",
     "build": "tsc && rm -rf dist && yarn build:main && yarn build:worker && yarn build:interface",
     "build:main": "INPUT=main vite build",
     "build:worker": "INPUT=worker vite build",
