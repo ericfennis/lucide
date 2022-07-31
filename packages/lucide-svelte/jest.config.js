@@ -7,5 +7,6 @@ module.exports = {
     '^.+\\.svelte$': 'svelte-jester',
   },
   moduleFileExtensions: ['js', 'svelte'],
+  testEnvironment: 'jsdom',
   setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'],
 };

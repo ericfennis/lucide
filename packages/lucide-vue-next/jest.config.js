@@ -1,10 +1,11 @@
 module.exports = {
   verbose: true,
   roots: ['<rootDir>/src/', '<rootDir>/tests/'],
-  moduleFileExtensions: ['js'],
+  moduleFileExtensions: ['js', 'vue'],
+  testEnvironment: 'jsdom',
   transform: {
     '^.+\\.js$': 'babel-jest',
-    '^.+\\.vue$': 'vue-jest',
+    '^.+\\.vue$': '@vue/vue3-jest',
   },
   transformIgnorePatterns: [`/node_modules`],
   snapshotSerializers: ['jest-serializer-vue'],

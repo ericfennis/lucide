@@ -19,7 +19,10 @@
   "unpkg": "dist/umd/lucide-vue-next.min.js",
   "typings": "dist/lucide-vue-next.d.ts",
   "sideEffects": false,
-  "files": ["dist", "nuxt.js"],
+  "files": [
+    "dist",
+    "nuxt.js"
+  ],
   "scripts": {
     "build": "pnpm clean && pnpm copy:license && pnpm build:icons && pnpm build:es && pnpm build:types && pnpm build:bundles",
     "copy:license": "cp ../../LICENSE ./LICENSE",
@@ -32,12 +35,12 @@
     "test:watch": "jest --watchAll"
   },
   "devDependencies": {
-    "@testing-library/vue": "^6.4.2",
+    "@testing-library/vue": "^6.6.1",
     "@vue/compiler-sfc": "3.0.6",
     "@vue/test-utils": "2.0.0-rc.18",
+    "@vue/vue3-jest": "28",
     "jest-serializer-vue": "^2.0.2",
-    "vue": "3.0.6",
-    "vue-jest": "^5.0.0-alpha.10"
+    "vue": "3.0.6"
   },
   "peerDependencies": {
     "vue": ">=3.0.1"

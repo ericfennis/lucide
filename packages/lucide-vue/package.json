@@ -27,15 +27,16 @@
     "build:es": "babel src -d dist/esm",
     "build:bundles": "rollup -c ./rollup.config.js",
     "test": "jest",
+    "test:version": "jest -v",
     "test:watch": "jest --watchAll"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.2",
-    "@testing-library/vue": "^5.8.2",
+    "@testing-library/vue": "5",
     "@vue/test-utils": "1.3.0",
     "jest-serializer-vue": "^2.0.2",
     "vue": "2.6.14",
-    "vue-jest": "^3.0.7",
+    "@vue/vue2-jest": "28",
     "vue-template-compiler": "2.6.14"
   },
   "peerDependencies": {
