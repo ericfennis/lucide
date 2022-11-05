@@ -5,8 +5,8 @@
   "editorType": ["figma"],
   "main": "dist/assets/main.js",
   "ui": {
-    "interface": "dist/src/interface/interface.html",
-    "worker": "dist/src/worker/worker.html"
+    "interface": "dev/interface.html",
+    "worker": "dev/worker.html"
   },
   "parameterOnly": false,
   "parameters": [

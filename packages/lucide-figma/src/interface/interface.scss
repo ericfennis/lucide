@@ -31,6 +31,18 @@ body {
   margin: 0;
 }
 
+h3 {
+  width: 100%;
+  font-weight: 600;
+  margin: 16px 0;
+  font-size: 11px;
+  // padding: 9.5px 0
+}
+
+p {
+  margin-bottom: 16px;
+}
+
 .search-input {
   position: sticky;
   top: 0;
@@ -53,10 +65,21 @@ footer {
   padding: 8px;
   font-size: 12px;
   color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   .footer-link {
     color: inherit;
   }
+}
+
+.container {
+  padding: 0 8px;
+}
+
+section {
+  padding: 0 16px;
 }
 
 .floating {
@@ -101,5 +124,41 @@ footer {
 
   &:hover {
     text-decoration: underline;
+  }
+}
+
+.button {
+  font-family: Inter, sans-serif;
+  font-weight: 500;
+  display: block;
+  text-align: center;
+  flex-shrink: 0;
+  max-width: 200px;
+  padding: 8px 12px;
+  background-color: transparent;
+  box-sizing: border-box;
+  border-radius: 6px;
+  cursor: default;
+  user-select: none;
+  border-color: transparent;
+  background-clip: border-box;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  &.contained {
+    color: #fff;
+    background-color: #0c8ce9;
+
+    &:hover {
+      background-color: #0f6eb3;
+    }
+  }
+
+  &.outlined {
+    background-color: transparent;
+    color: var(--color-text, #333333);
+    border: 1px solid var(--color-text, #333333);
   }
 }

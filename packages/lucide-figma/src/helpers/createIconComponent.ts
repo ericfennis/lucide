@@ -43,7 +43,7 @@ const createIconComponent = (iconName: string, iconNode: IconNode) => {
           className: `lucide lucide-${toKebabCase(iconName)}`,
           ...rest,
         },
-        [...iconNode.map(([tag, attrs]: [tag:string, attrs: SVGProps<SVGSVGElement>]) => createElement(tag, attrs)), ...([children] || [])],
+        [...iconNode.map(([tag, attrs]: [tag:string, attrs: SVGProps<SVGSVGElement>], index) => createElement(tag, { ...attrs, key: `${tag}-${index}`})), ...([children] || [])],
       ),
   );
 

@@ -10,12 +10,14 @@ interface PageProps {
   searchResults: Icon[]
   icons: Icon[]
   version: string
+  onRefreshClick: () => void
 }
 
 const Icons = ({
   query,
   setQuery,
   searchResults,
+  onRefreshClick,
   icons,
   version
 }: PageProps) => {
@@ -50,6 +52,9 @@ const Icons = ({
             >
               Lucide v{version}
             </a>
+            <button className="button outlined" onClick={onRefreshClick}>
+              Refresh Icons
+            </button>
           </footer>
         </main>
     </>

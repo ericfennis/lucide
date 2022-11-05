@@ -16,7 +16,10 @@ export interface LucideIcons {
 }
 
 export const fetchIcons = async (cachedIcons? : LucideIcons): Promise<LucideIcons> => {
+  console.log("FETCH");
+
   const response = await fetch('https://unpkg.com/lucide-static@latest/package.json')
+
   const packageJson = await response.json();
 
   if(cachedIcons && cachedIcons?.version === packageJson.version) {

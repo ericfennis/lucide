@@ -6,7 +6,7 @@ type Views = typeof views
 
 import useSearch, { Icon } from '../hooks/useSearch'
 
-import { getIcons, iconFetchListener, LucideIcons } from '../api/fetchIcons'
+import { fetchIcons, iconFetchListener, LucideIcons } from '../api/fetchIcons'
 import './interface.scss'
 import Menu from '../components/Menu'
 
@@ -27,6 +27,12 @@ function App() {
     setVersion(lucideIcons.version)
   }
 
+  const onRefreshClick = async () => {
+    const lucideIcons = await fetchIcons()
+    const icons = Object.entries(lucideIcons.iconNodes)
+    setIcons(icons)
+  }
+
   useEffect(() => {
     const removeListener = iconFetchListener(handleFetchResponse)
 
@@ -44,7 +50,8 @@ function App() {
           setQuery,
           searchResults,
           icons,
-          version
+          version,
+          onRefreshClick,
         }}
       />
     </div>

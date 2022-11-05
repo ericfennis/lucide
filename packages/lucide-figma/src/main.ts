@@ -135,5 +135,10 @@ figma.on('run', event => {
     })
   } else {
     figma.showUI(__uiFiles__.interface, { width: 300, height: 400 })
+
+    fetch('https://unpkg.com/lucide@latest').then(res => {
+      console.log(res);
+
+    })
   }
 })
