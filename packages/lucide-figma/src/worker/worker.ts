@@ -19,8 +19,6 @@ const getSvg = async ({ cachedIcons, iconName, size = 24 }: { cachedIcons: Lucid
     return;
   }
 
-  console.log( iconName, size)
-
   const iconNode = cachedIcons.iconNodes[iconName];
 
   if (iconNode) {

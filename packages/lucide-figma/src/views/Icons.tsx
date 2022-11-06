@@ -25,7 +25,6 @@ const Icons = ({
     <>
       <SearchInput
         value={query}
-        iconCount={icons.length}
         onChange={(event)  => setQuery(event.target.value)}
         placeholder={icons.length ? `Search ${icons.length} icons`: 'Loading icons ..'}
       />

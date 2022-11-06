@@ -18,42 +18,34 @@ if(process.env['INPUT']) {
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
-
-
-  if (command === 'serve') {
-    return {
-      plugins: [react(), viteSingleFile()],
-      server: {
+  return {
+    plugins: [react(), viteSingleFile()],
+    server: {
+      host: 'localhost',
+      port: 3000,
+      hmr: {
         host: 'localhost',
         port: 3000,
-        hmr: {
-          host: 'localhost',
-          port: 3000,
-        }
       }
-    }
-  } else {
-    return {
-      plugins: [react(), viteSingleFile()],
-      build: {
-        target: "esnext",
-        assetsInlineLimit: 100000000,
-        chunkSizeWarningLimit: 100000000,
-        cssCodeSplit: false,
-        brotliSize: false,
-        emptyOutDir: false,
-        rollupOptions: {
-          input,
-          inlineDynamicImports: true,
-          output: {
-            manualChunks: (chunk) => "all.js",
-            entryFileNames: `assets/[name].js`,
-            chunkFileNames: `assets/[name].js`,
-            assetFileNames: `assets/[name].[ext]`
-          },
+    },
+    build: {
+      target: "esnext",
+      assetsInlineLimit: 100000000,
+      chunkSizeWarningLimit: 100000000,
+      cssCodeSplit: false,
+      brotliSize: false,
+      emptyOutDir: false,
+      rollupOptions: {
+        input,
+        inlineDynamicImports: true,
+        output: {
+          manualChunks: (chunk) => "all.js",
+          entryFileNames: `assets/[name].js`,
+          chunkFileNames: `assets/[name].js`,
+          assetFileNames: `assets/[name].[ext]`
         },
       },
-    }
+    },
   }
 })
 

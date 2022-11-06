@@ -1,15 +1,13 @@
 import type { LucideIcons } from "./api/fetchIcons";
 import filterIcons from "./helpers/filterIcons";
+import { Icon } from "./hooks/useSearch";
+import drawIcon from "./lib/drawIcon";
+import generateIconComponents from "./lib/generateIconComponents";
+import { PluginMessage } from "./types";
 
 figma.showUI(__uiFiles__.worker, { visible: false })
 
 let cachedIcons: LucideIcons
-
-type InsertableNodes = FrameNode | GroupNode
-
-function isInsertableNode (node: SceneNode): node is InsertableNodes {
-  return ['FRAME', 'GROUP'].includes(node.type)
-}
 
 const setResults = ({result, query, lucideIcons} : { result: SuggestionResults, query: string, lucideIcons: LucideIcons }) => {
   const icons = Object.entries(lucideIcons.iconNodes);
@@ -22,9 +20,17 @@ const setResults = ({result, query, lucideIcons} : { result: SuggestionResults, 
   result.setSuggestions(suggestions)
 }
 
-// const styles = figma.getLocalPaintStyles();
-// const styleNames = styles.map((style) => style.name);
-// console.log(styleNames);
+const getPaintStyles = () => {
+  const styles = figma.getLocalPaintStyles();
+
+  const response = { type: 'paintStyles' }
+
+  if(styles) {
+    Object.assign(response, { styles })
+  }
+
+  figma.ui.postMessage(response)
+}
 
 figma.parameters.on('input', async ({ parameters, key, query, result }) => {
   if (key === 'icon-name') {
@@ -43,48 +49,8 @@ figma.parameters.on('input', async ({ parameters, key, query, result }) => {
   }
 })
 
-const drawIcon = ({icon: {name, svg, size }}: any) => {
-  const min = 0
-  const max = 100
-  const randomPosition = () => Math.floor(Math.random() * (max - min + 1) + min)
-
-  const icon = figma.createNodeFromSvg(svg)
-  icon.setPluginData('isLucideIcon', 'true')
-  icon.setPluginData('iconName', name)
-
-  const pluginData = icon.getPluginData('isLucideIcon')
-
-  icon.name = name
-  icon.x = Math.round(figma.viewport.center.x + randomPosition())
-  icon.y = Math.round(figma.viewport.center.y + randomPosition())
-
-  if(figma.currentPage.selection.length) {
-    let currentSelection = figma.currentPage.selection[0]
-    const isLucideIcon = currentSelection.getPluginData('isLucideIcon')
-
-    // if(isLucideIcon && currentSelection?.parent) {
-    //   return
-    //   // currentSelection = currentSelection.parent as SceneNode
-    // }
-
-    if(!isLucideIcon && isInsertableNode(currentSelection)) {
-      icon.x = currentSelection.type === 'GROUP' ? currentSelection.x : 0
-      icon.y = currentSelection.type === 'GROUP' ? currentSelection.y : 0
-
-      currentSelection.appendChild(icon)
-    }
-  }
-
-  figma.currentPage.selection = [icon]
-
-  // lock children
-  // icon.children.forEach((vectorNode, key) => {
-  //   icon.children[key].locked = true
-  // });
-}
-
-const setCachedIcons = async (pluginMessage: any) => {
-  if(pluginMessage.lucideIcons) {
+const setCachedIcons = async (pluginMessage: PluginMessage) => {
+  if(pluginMessage.type === 'setCachedIcons' && pluginMessage.lucideIcons) {
     await figma.clientStorage.setAsync(`lucide-icons`, pluginMessage.lucideIcons)
   }
 }
@@ -103,17 +69,25 @@ const getCachedIcons = async () => {
 
 getCachedIcons()
 
-figma.ui.onmessage = (event) => {
-  switch (event.type) {
+figma.ui.onmessage = (pluginMessage: PluginMessage) => {
+  switch (pluginMessage.type) {
     case "drawIcon":
-      drawIcon(event)
+      drawIcon(pluginMessage)
       break;
     case "getCachedIcons":
       getCachedIcons()
       break;
 
     case "setCachedIcons":
-      setCachedIcons(event)
+      setCachedIcons(pluginMessage)
+      break;
+
+    case "getPaintStyles":
+      getPaintStyles()
+      break;
+
+    case "generateIconComponents":
+      generateIconComponents(pluginMessage)
       break;
 
     case "close":
@@ -135,10 +109,5 @@ figma.on('run', event => {
     })
   } else {
     figma.showUI(__uiFiles__.interface, { width: 300, height: 400 })
-
-    fetch('https://unpkg.com/lucide@latest').then(res => {
-      console.log(res);
-
-    })
   }
 })

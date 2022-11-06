@@ -4,7 +4,6 @@ import SearchIcon from "../icons/SearchIcon"
 
 interface SearchInputProps extends React.HTMLProps<HTMLDivElement> {
   value: string,
-  iconCount: number,
   onChange: (event: ChangeEvent<HTMLInputElement>) => void
   placeholder: string
 }
