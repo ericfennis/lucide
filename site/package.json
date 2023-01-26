@@ -12,7 +12,8 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "test": "jest",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "write:tags": "node ../scripts/writeTagsJSON.mjs"
   },
   "dependencies": {
     "@chakra-ui/react": "1.8.8",
