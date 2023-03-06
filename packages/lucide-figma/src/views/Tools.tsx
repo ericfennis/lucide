@@ -13,7 +13,7 @@ const Tools = ({ icons: iconNodes }: ToolsProps) => {
       return {
         name: iconName,
         svg: renderToString(<Icon color='#000' />),
-        size: 24
+        size: 24,
       }
     })
 
@@ -29,13 +29,13 @@ const Tools = ({ icons: iconNodes }: ToolsProps) => {
     <main>
       <section>
         <h3>
-          Create icon page
+          Create icon component page
         </h3>
         <p>
-          Create a page of Lucide icons
+          Create a page of Lucide icons components, this page can be updates and your icons you used through the project will be updated.
         </p>
         <button className="button contained" onClick={generateComponents}>
-          Generate icons
+          Create or update components
         </button>
       </section>
 

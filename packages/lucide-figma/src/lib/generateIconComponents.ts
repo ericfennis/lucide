@@ -55,6 +55,12 @@ const generateIconComponents = (pluginMessage: PluginMessage) => {
     component.y = iconNode.y
     component.setPluginData('isLucideIconComponent', 'true')
 
+    for (const oldChild of component.children) {
+      oldChild.remove()
+    }
+
+    // TODO: Make sure color is still applied.
+
     for (const child of iconNode.children) {
       component.appendChild(child)
     }
