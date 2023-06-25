@@ -7,6 +7,7 @@ import {
   toPascalCase,
   writeFile,
   getCurrentDirPath,
+  readSvg,
 } from '../../../scripts/helpers.mjs';
 
 const currentDir = getCurrentDirPath(import.meta.url);
@@ -48,8 +49,30 @@ const svgFiles = readSvgDirectory(ICONS_DIR);
 svgFiles.forEach((svgFile) => {
   const iconName = path.basename(svgFile, '.svg');
   const componentName = toPascalCase(iconName);
+  const svgContents = readSvg(svgFile, ICONS_DIR);
 
-  declarationFileContent += `export declare const ${componentName}: LucideIcon;\n`;
+  const svgBase64 = Buffer.from(
+    svgContents
+      .replace('\n', '')
+      .replace(
+        'stroke="currentColor"',
+        'stroke="#000" style="background-color: #fff; border-radius: 2px"',
+      ),
+  ).toString('base64');
+
+  declarationFileContent += `\
+/**
+ * @component @name ${componentName}
+ * @description Lucide SVG icon component, renders SVG Element with children.
+ *
+ * @preview ![img](data:image/svg+xml;base64,${svgBase64}) - https://lucide.dev/icons/${iconName}
+ * @see https://lucide.dev/guide/packages/lucide-react - Documentation
+ *
+ * @param {Object} props - Lucide icons props and any valid SVG attribute
+ * @returns {JSX.Element} JSX Element
+ *
+ */
+export declare const ${componentName}: LucideIcon;\n`;
 });
 
 const aliases = await getAliases(ICONS_DIR);
@@ -67,8 +90,8 @@ svgFiles.forEach((svgFile) => {
   const iconAliases = aliases[iconName]?.aliases;
 
   declarationFileContent += `// ${componentName} aliases\n`;
-  declarationFileContent += `export declare const ${componentName}Icon: LucideIcon;\n`;
-  declarationFileContent += `export declare const Lucide${componentName}: LucideIcon;\n`;
+  declarationFileContent += `export declare const ${componentName}Icon: typeof ${componentName};\n`;
+  declarationFileContent += `export declare const Lucide${componentName}: typeof ${componentName};\n`;
   aliasesCount += 1;
   if (iconAliases != null && Array.isArray(iconAliases)) {
     iconAliases.forEach((alias) => {
