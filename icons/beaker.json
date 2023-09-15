@@ -1,7 +1,15 @@
 {
   "$schema": "../icon.schema.json",
+  "contributors": [
+    "Andreto",
+    "ericfennis"
+  ],
   "tags": [
-    "cup"
+    "cup",
+    "lab",
+    "chemistry",
+    "experiment",
+    "test"
   ],
   "categories": [
     "science",

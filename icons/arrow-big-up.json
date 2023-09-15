@@ -1,10 +1,26 @@
 {
   "$schema": "../icon.schema.json",
+  "contributors": [
+    "Andreto",
+    "mittalyashu",
+    "danielbayley"
+  ],
   "tags": [
-    "key",
-    "forward"
+    "shift",
+    "keyboard",
+    "button",
+    "mac",
+    "capitalize",
+    "capitalise",
+    "forward",
+    "direction",
+    "north"
   ],
   "categories": [
-    "arrows"
+    "arrows",
+    "navigation",
+    "text",
+    "development",
+    "gaming"
   ]
 }

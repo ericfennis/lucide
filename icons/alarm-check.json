@@ -1,7 +1,17 @@
 {
   "$schema": "../icon.schema.json",
+  "contributors": [
+    "mittalyashu",
+    "ericfennis",
+    "jguddas",
+    "karsa-mistmere"
+  ],
   "tags": [
-    "done"
+    "done",
+    "todo",
+    "tick",
+    "complete",
+    "task"
   ],
   "categories": [
     "devices",

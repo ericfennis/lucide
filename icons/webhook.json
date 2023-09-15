@@ -1,5 +1,8 @@
 {
   "$schema": "../icon.schema.json",
+  "contributors": [
+    "karsa-mistmere"
+  ],
   "tags": [
     "push api",
     "interface",
@@ -7,7 +10,6 @@
   ],
   "categories": [
     "development",
-    "coding",
     "social",
     "account"
   ]

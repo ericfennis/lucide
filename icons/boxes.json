@@ -1,5 +1,8 @@
 {
   "$schema": "../icon.schema.json",
+  "contributors": [
+    "karsa-mistmere"
+  ],
   "tags": [
     "cubes",
     "packages",
@@ -12,7 +15,6 @@
   "categories": [
     "shapes",
     "gaming",
-    "coding",
     "development"
   ]
 }

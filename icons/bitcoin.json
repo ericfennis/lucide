@@ -1,5 +1,9 @@
 {
   "$schema": "../icon.schema.json",
+  "contributors": [
+    "ericfennis",
+    "mittalyashu"
+  ],
   "tags": [
     "currency",
     "money",
@@ -8,7 +12,7 @@
   "categories": [
     "brands",
     "currency",
-    "coding",
+    "development",
     "money"
   ]
 }

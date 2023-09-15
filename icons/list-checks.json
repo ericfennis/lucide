@@ -1,8 +1,17 @@
 {
   "$schema": "../icon.schema.json",
+  "contributors": [
+    "ericfennis"
+  ],
   "tags": [
     "todo",
-    "done"
+    "done",
+    "check",
+    "tick",
+    "complete",
+    "tasks",
+    "items",
+    "pending"
   ],
   "categories": [
     "text"

@@ -1,5 +1,9 @@
 {
   "$schema": "../icon.schema.json",
+  "contributors": [
+    "karsa-mistmere",
+    "ericfennis"
+  ],
   "tags": [
     "oven",
     "cooker",
@@ -7,6 +11,7 @@
     "bake"
   ],
   "categories": [
-    "food-beverage"
+    "food-beverage",
+    "home"
   ]
 }

@@ -1,11 +1,14 @@
 {
   "$schema": "../icon.schema.json",
+  "contributors": [
+    "colebemis",
+    "ericfennis"
+  ],
   "tags": [
     "logo"
   ],
   "categories": [
     "brands",
-    "development",
-    "coding"
+    "development"
   ]
 }

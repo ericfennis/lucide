@@ -1,11 +1,15 @@
 {
   "$schema": "../icon.schema.json",
+  "contributors": [
+    "colebemis",
+    "ericfennis",
+    "johnletey"
+  ],
   "tags": [
     "code",
     "version control"
   ],
   "categories": [
-    "development",
-    "coding"
+    "development"
   ]
 }

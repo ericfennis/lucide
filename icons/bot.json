@@ -1,11 +1,16 @@
 {
   "$schema": "../icon.schema.json",
+  "contributors": [
+    "ericfennis"
+  ],
   "tags": [
     "robot",
-    "ai"
+    "ai",
+    "chat",
+    "assistant"
   ],
   "categories": [
-    "coding",
-    "development"
+    "development",
+    "social"
   ]
 }

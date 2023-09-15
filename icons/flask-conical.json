@@ -1,8 +1,17 @@
 {
   "$schema": "../icon.schema.json",
+  "contributors": [
+    "Andreto",
+    "ericfennis",
+    "karsa-mistmere"
+  ],
   "tags": [
     "beaker",
-    "erlenmeyer"
+    "erlenmeyer",
+    "lab",
+    "chemistry",
+    "experiment",
+    "test"
   ],
   "categories": [
     "science",

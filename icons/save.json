@@ -1,9 +1,15 @@
 {
   "$schema": "../icon.schema.json",
+  "contributors": [
+    "colebemis",
+    "csandman",
+    "ericfennis"
+  ],
   "tags": [
     "floppy disk"
   ],
   "categories": [
-    "text"
+    "text",
+    "files"
   ]
 }

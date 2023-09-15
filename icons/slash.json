@@ -1,15 +1,13 @@
 {
   "$schema": "../icon.schema.json",
   "tags": [
-    "cancel",
-    "ban",
-    "no",
-    "stop",
-    "forbidden",
-    "prohibited",
-    "error"
+    "divide",
+    "division",
+    "or",
+    "/"
   ],
   "categories": [
-    "account"
+    "development",
+    "maths"
   ]
 }

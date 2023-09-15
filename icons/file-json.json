@@ -1,12 +1,16 @@
 {
   "$schema": "../icon.schema.json",
+  "contributors": [
+    "karsa-mistmere"
+  ],
   "tags": [
     "code",
     "json",
-    "curly braces"
+    "curly braces",
+    "curly brackets"
   ],
   "categories": [
     "files",
-    "coding"
+    "development"
   ]
 }
