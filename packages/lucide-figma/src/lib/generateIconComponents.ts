@@ -1,3 +1,4 @@
+import clone from "../helpers/clone"
 import { PluginMessage } from "../types"
 
 const generateIconComponents = (pluginMessage: PluginMessage) => {
@@ -55,13 +56,24 @@ const generateIconComponents = (pluginMessage: PluginMessage) => {
     component.y = iconNode.y
     component.setPluginData('isLucideIconComponent', 'true')
 
-    for (const oldChild of component.children) {
+    let strokes: Paint[] | undefined
+
+    for (const oldChild of component.children as VectorNode[]) {
+      if (oldChild.strokes != null && oldChild.strokes) {
+        strokes = clone(oldChild.strokes)
+      }
+
       oldChild.remove()
     }
 
     // TODO: Make sure color is still applied.
 
-    for (const child of iconNode.children) {
+    for (const child of iconNode.children as VectorNode[]) {
+      if (strokes != null && child.strokes != null) {
+
+        child.strokes = strokes
+      }
+
       component.appendChild(child)
     }
 
