@@ -8,8 +8,14 @@ import * as iconAndAliases from './iconsAndAliases';
 const createIcons = ({ icons = {}, nameAttr = 'data-lucide', attrs = {} } = {}) => {
   if (!Object.values(icons).length) {
     throw new Error(
-      "Please provide an icons object.\nIf you want to use all the icons you can import it like:\n `import { createIcons, icons } from 'lucide';\nlucide.createIcons({icons});`",
+      "Lucide: Please provide an icons object.\nIf you want to use all the icons you can import it like:\n `import { createIcons, icons } from 'lucide';\nlucide.createIcons({icons});`",
     );
+  }
+
+  if (Object.values(icons).length > 400) {
+    console.warn(
+      'Lucide: You are trying to load more than 400 icons. Please import only the icons you need. This will reduce the bundle size and improve performance.',
+    )
   }
 
   if (typeof document === 'undefined') {
@@ -17,6 +23,7 @@ const createIcons = ({ icons = {}, nameAttr = 'data-lucide', attrs = {} } = {}) 
   }
 
   const elementsToReplace = document.querySelectorAll(`[${nameAttr}]`);
+
   Array.from(elementsToReplace).forEach((element) =>
     replaceElement(element, { nameAttr, icons, attrs }),
   );
