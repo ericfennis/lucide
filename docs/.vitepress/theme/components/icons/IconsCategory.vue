@@ -5,11 +5,13 @@ type CategoryNameRow = {
   type: 'category';
   title: string;
   name: string;
+  category: string;
 };
 
 type CategoryIconsRow = {
   type: 'icons';
   icons: IconEntity[];
+  category: string;
 };
 
 export type CategoryRow = CategoryNameRow | CategoryIconsRow;
@@ -24,6 +26,21 @@ defineProps<{
 }>()
 
 const emit = defineEmits(['setActiveIcon'])
+
+async function deleteIcon(icon: string, categoryRow: CategoryRow) {
+  if(icon === null || categoryRow?.category == null) return
+  await fetch('/api/categories/edit', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      category: categoryRow.category,
+      icon: icon,
+      action: 'delete',
+    }),
+  })
+}
 </script>
 
 <template>
@@ -38,6 +55,7 @@ const emit = defineEmits(['setActiveIcon'])
     v-else-if="categoryRow.type === 'icons'"
     :activeIcon="activeIconName"
     :icons="categoryRow.icons"
+    @metaClick="(icon: IconEntity) => deleteIcon(icon, categoryRow)"
     @setActiveIcon="$event => $emit('setActiveIcon', $event)"
     overlayMode
   />

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 import createLucideIcon from 'lucide-vue-next/src/createLucideIcon';
 import { useMediaQuery } from '@vueuse/core';
 import { useRouter } from 'vitepress';
@@ -23,7 +23,7 @@ const props = defineProps<{
   hideIcon?: boolean
 }>()
 
-const emit = defineEmits(['setActiveIcon'])
+const emit = defineEmits(['setActiveIcon', 'metaClick'])
 
 const { go } = useRouter()
 const showOverlay = useMediaQuery('(min-width: 860px)');
@@ -35,6 +35,7 @@ const icon = computed(() => {
   return createLucideIcon(props.name, props.iconNode)
 })
 
+const deleted = ref<boolean>(false)
 const href = computed(() => props.externalLibrary ? `/icons/${props.externalLibrary}/${props.name}` : `/icons/${props.name}`)
 
 async function navigateToIcon(event) {
@@ -48,6 +49,12 @@ async function navigateToIcon(event) {
 
     confettiText.value = copiedText
     confetti()
+    return
+  }
+
+  if(event.metaKey || event.ctrlKey) {
+    emit('metaClick', props.name)
+    deleted.value = true
     return
   }
 
@@ -72,9 +79,12 @@ const DiamondIcon = createLucideIcon('Diamond', diamond)
       @click="navigateToIcon"
       :class="{ active, animate }"
       :aria-label="name"
-
       :data-confetti-text="confettiText"
       ref="ref"
+      :style="{
+        opacity: deleted ? 0.4 : 1,
+        pointerEvents: deleted ? 'none' : 'auto',
+      }"
     >
       <KeepAlive>
         <component

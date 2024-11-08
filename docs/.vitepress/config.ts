@@ -14,6 +14,15 @@ export default defineConfig({
   outDir: '.vercel/output/static',
   srcExclude: ['**/README.md'],
   vite: {
+    server: {
+      proxy: {
+        '/api': {
+          target: 'http://localhost:3000',
+          changeOrigin: true,
+          secure: false,
+        },
+      },
+    },
     resolve: {
       alias: [
         {
@@ -34,6 +43,7 @@ export default defineConfig({
         },
       ],
     },
+
   },
   head: [
     [

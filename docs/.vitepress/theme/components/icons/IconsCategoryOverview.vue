@@ -92,11 +92,11 @@ const categoriesList = computed(() => {
   return categories.value
     .filter(({ icons }) => icons.length)
     .reduce<CategoryRow[]>((acc, category) => {
-      acc.push({ type: 'category', title: category.title, name: category.name });
+      acc.push({ type: 'category', title: category.title, name: category.name, category: category.name });
 
       const categoryIcons = chunkArray(category.icons, columnSize.value);
       categoryIcons.forEach((icons) => {
-        acc.push({ type: 'icons', icons });
+        acc.push({ type: 'icons', icons, category: category.name });
       });
 
       return acc;
@@ -140,12 +140,6 @@ function handleCloseDrawer() {
 
   window.history.pushState({}, '', '/icons/categories');
 }
-
-watchEffect(() => {
-
-  console.log(props.icons.find((icon) => icon.name === 'burger'));
-
-});
 </script>
 
 <template>

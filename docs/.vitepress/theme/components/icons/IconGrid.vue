@@ -2,7 +2,7 @@
 import type { IconEntity } from '../../types'
 import IconItem from './IconItem.vue'
 
-const emit = defineEmits(['setActiveIcon'])
+defineEmits(['setActiveIcon', 'metaClick'])
 
 defineProps<{
   icons: IconEntity[]
@@ -10,10 +10,6 @@ defineProps<{
   overlayMode?: boolean
   hideIcons?: boolean
 }>()
-
-function setActiveIcon(name: string) {
-  emit('setActiveIcon', name)
-}
 
 </script>
 
@@ -28,11 +24,13 @@ function setActiveIcon(name: string) {
         :iconNode="icon.iconNode"
         :name="icon.name"
         :externalLibrary="icon.externalLibrary"
-        @setActiveIcon="setActiveIcon"
+        @setActiveIcon="$event => $emit('setActiveIcon', $event)"
+        @metaClick="$event => $emit('metaClick', $event)"
         :active="activeIcon === icon.name"
         customizable
         :overlayMode="overlayMode"
         :hideIcon="hideIcons"
+
       />
     </div>
   </div>
