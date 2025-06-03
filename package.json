@@ -39,7 +39,8 @@
     "prepare": "husky install",
     "gi": "node ./scripts/generate/generateIcons.mjs",
     "rename": "node scripts/rename/renameIcon.mjs",
-    "renamePattern": "node scripts/rename/renamePattern.mjs"
+    "renamePattern": "node scripts/rename/renamePattern.mjs",
+    "uploadReleases": "node scripts/uploadReleasedIcons.mjs"
   },
   "devDependencies": {
     "@html-eslint/eslint-plugin": "^0.19.1",
