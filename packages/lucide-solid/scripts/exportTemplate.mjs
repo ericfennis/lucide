@@ -1,11 +1,10 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import base64SVG from '@lucide/build-icons/utils/base64SVG.mjs';
-import { getJSBanner } from './license.mjs';
 
 export default async ({
+  componentName,
   iconName,
   children,
-  componentName,
   getSvg,
   deprecated,
   deprecationReason,
@@ -13,13 +12,9 @@ export default async ({
   const svgContents = await getSvg();
   const svgBase64 = base64SVG(svgContents);
 
-  return `\
-<script lang="ts">
-${getJSBanner()}
-import Icon from '../Icon.svelte';
-import type { IconNode, IconProps } from '../types.js';
-
-type $$Props = IconProps;
+  return `
+import Icon from '../Icon';
+import type { IconNode, LucideProps } from '../types';
 
 const iconNode: IconNode = ${JSON.stringify(children)};
 
@@ -28,16 +23,16 @@ const iconNode: IconNode = ${JSON.stringify(children)};
  * @description Lucide SVG icon component, renders SVG Element with children.
  *
  * @preview ![img](data:image/svg+xml;base64,${svgBase64}) - https://lucide.dev/icons/${iconName}
- * @see https://lucide.dev/guide/packages/lucide-svelte - Documentation
+ * @see https://lucide.dev/guide/packages/lucide-solid - Documentation
  *
  * @param {Object} props - Lucide icons props and any valid SVG attribute
- * @returns {FunctionalComponent} Svelte component
+ * @returns {JSX.Element} JSX Element
  * ${deprecated ? `@deprecated ${deprecationReason}` : ''}
  */
-</script>
+const ${componentName} = (props: LucideProps) => (
+  <Icon {...props} iconNode={iconNode} name="${iconName}" />
+)
 
-<Icon name="${iconName}" {...$$props} iconNode={iconNode}>
-  <slot/>
-</Icon>
+export default ${componentName};
 `;
 };
