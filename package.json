@@ -37,7 +37,8 @@
     "prepare": "husky install",
     "gi": "node ./scripts/generate/generateIcons.mts",
     "rename": "node ./scripts/rename/renameIcon.mts",
-    "renamePattern": "node ./scripts/rename/renamePattern.mts"
+    "renamePattern": "node ./scripts/rename/renamePattern.mts",
+    "spell": "cspell ./**/*.md ./*.md"
   },
   "devDependencies": {
     "@actions/core": "^1.11.1",

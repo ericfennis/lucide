@@ -30,10 +30,11 @@
     "@lucide/shared": "workspace:*",
     "@rollup/plugin-replace": "^6.0.2",
     "@types/semver": "^7.5.3",
+    "cspell": "^9.2.1",
     "nitropack": "2.8.1",
     "rollup-plugin-copy": "^3.5.0",
-    "vitepress": "^1.6.3",
-    "svg-path-commander": "^2.1.11"
+    "svg-path-commander": "^2.1.11",
+    "vitepress": "^1.6.3"
   },
   "dependencies": {
     "@floating-ui/vue": "^1.0.3",
