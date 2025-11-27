@@ -1,4 +1,4 @@
-import { eventHandler, setResponseHeader, defaultContentType } from 'h3';
+import { defineHandler } from "nitro/h3";
 import { Resvg, initWasm } from '@resvg/resvg-wasm';
 import iconNodes from '../../../data/iconNodes';
 import wasm from './loadWasm';
@@ -6,9 +6,17 @@ import { createElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import createLucideIcon from 'lucide-react/src/createLucideIcon';
 
+// import resvgWasm from "@resvg/resvg-wasm/index_bg.wasm?module";
+
+// export default eventHandler(async (event) => {
+//   const { params = {} } = event.context;
+//   const reswvg = await WebAssembly.instantiate(resvgWasm).then((i) => i.exports);
+//   await initWasm(resvgWasm);
+
+
 var initializedResvg = initWasm(wasm);
 
-export default eventHandler(async (event) => {
+export default defineHandler(async (event) => {
   const { params = {} } = event.context;
   await initializedResvg;
 

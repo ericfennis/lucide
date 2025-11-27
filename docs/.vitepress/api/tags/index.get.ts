@@ -1,6 +1,7 @@
 import iconMetaData from '../../data/iconMetaData';
+import { defineHandler } from "nitro/h3";
 
-export default eventHandler((event) => {
+export default defineHandler((event) => {
   setResponseHeader(event, 'Cache-Control', 'public, max-age=86400');
   setResponseHeader(event, 'Access-Control-Allow-Origin', '*');
 

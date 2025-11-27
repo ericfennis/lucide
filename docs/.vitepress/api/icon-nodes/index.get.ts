@@ -1,8 +1,8 @@
-import { eventHandler, getQuery, setResponseHeader } from 'h3';
+import { defineHandler } from "nitro/h3";
 import iconNodes from '../../data/iconNodes';
 import { IconNodeWithKeys } from '../../theme/types';
 
-export default eventHandler((event) => {
+export default defineHandler((event) => {
   const query = getQuery(event);
 
   const withUniqueKeys = query.withUniqueKeys === 'true';

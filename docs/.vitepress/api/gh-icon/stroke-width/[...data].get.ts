@@ -1,11 +1,11 @@
-import { eventHandler, setResponseHeader, defaultContentType } from 'h3';
+import { defineHandler } from "nitro/h3";
 import { renderToString } from 'react-dom/server';
 import { createElement } from 'react';
 import SvgPreview from '../../../lib/SvgPreview/index.tsx';
-import createLucideIcon, { IconNode } from 'lucide-react/src/createLucideIcon';
+import {createLucideIcon, type IconNode } from 'lucide-react/src/lucide-react.ts';
 import { parseSync } from 'svgson';
 
-export default eventHandler((event) => {
+export default defineHandler((event) => {
   const { params } = event.context;
 
   const [strokeWidth, svgData] = params.data.split('/');

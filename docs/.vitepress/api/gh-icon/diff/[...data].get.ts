@@ -1,11 +1,11 @@
-import { eventHandler, setResponseHeader, defaultContentType } from 'h3';
+import { defineHandler } from "nitro/h3";
 import { renderToString, renderToStaticMarkup } from 'react-dom/server';
 import { createElement } from 'react';
 import Diff from '../../../lib/SvgPreview/Diff.tsx';
 import iconNodes from '../../../data/iconNodes';
 import createLucideIcon from 'lucide-react/src/createLucideIcon';
 
-export default eventHandler((event) => {
+export default defineHandler((event) => {
   const { params } = event.context;
 
   const pathData = params.data.split('/');

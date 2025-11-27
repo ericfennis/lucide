@@ -1,10 +1,10 @@
-import { eventHandler, getQuery, setResponseHeader, createError } from 'h3';
 import iconNodes from '../../data/iconNodes';
 import createLucideIcon from 'lucide-react/src/createLucideIcon';
 import { renderToString } from 'react-dom/server';
 import { createElement } from 'react';
+import { defineHandler } from "nitro/h3";
 
-export default eventHandler((event) => {
+export default defineHandler((event) => {
   const { params } = event.context;
 
   const iconNode = iconNodes[params.iconName];

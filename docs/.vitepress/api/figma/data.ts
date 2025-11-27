@@ -1,3 +1,4 @@
+import { defineHandler } from "nitro/h3";
 import iconNodes from '../../data/iconNodes/index.ts';
 import { IconNodeWithKeys } from '../../theme/types';
 import iconMetaData from '../../data/iconMetaData';
@@ -32,7 +33,7 @@ const dataResponse = {
   categories,
 };
 
-export default eventHandler((event) => {
+export default defineHandler((event) => {
   setResponseHeader(event, 'Cache-Control', 'public, max-age=86400');
   setResponseHeader(event, 'Access-Control-Allow-Origin', '*');
 

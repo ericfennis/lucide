@@ -2,6 +2,8 @@
   "extends": "./.nitro/types/tsconfig.json",
   "compilerOptions": {
     "jsx": "react",
+    "jsxFactory": "React.createElement",
+    "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "allowSyntheticDefaultImports": true,
     "noEmit": true,

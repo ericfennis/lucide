@@ -4,7 +4,8 @@ import module from 'node:module';
 
 let wasm;
 
-if (process.env.NODE_ENV === 'development') {
+
+if (import.meta.env.DEV) {
   const require = module.createRequire(import.meta.url);
 
   wasm = fs.readFileSync(require.resolve('@resvg/resvg-wasm/index_bg.wasm'));
