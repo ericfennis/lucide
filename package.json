@@ -23,6 +23,7 @@
     "generate:changelog": "node ./scripts/generateChangelog.mts",
     "generate:contributors": "node ./scripts/updateContributors.mts icons/*.svg",
     "generate:nextJSAliases": "node ./scripts/generateNextJSAliases.mts",
+    "findIconPRNumber": "node ./scripts/findIconPRNumber.mts",
     "suggest:tags": "node ./scripts/suggestTags.mts",
     "suggest:tags:watch": "node --env-file .env --watch ./scripts/suggestTags.mts ",
     "postinstall": "husky install",
