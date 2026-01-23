@@ -453,6 +453,9 @@ importers:
       '@vitejs/plugin-react':
         specifier: ^4.4.1
         version: 4.7.0(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(less@4.2.0)(sass@1.77.8)(stylus@0.56.0)(terser@5.44.1)(yaml@2.8.0))
+      '@webcontainer/test':
+        specifier: ^0.3.0
+        version: 0.3.0(vitest@4.0.12(@types/debug@4.1.12)(@types/node@24.10.1)(jiti@2.6.1)(jsdom@20.0.3)(less@4.2.0)(sass@1.77.8)(stylus@0.56.0)(terser@5.44.1)(yaml@2.8.0))
       jest-serializer-html:
         specifier: ^7.1.0
         version: 7.1.0
@@ -3869,6 +3872,10 @@ packages:
   '@marijn/find-cluster-break@1.0.2':
     resolution: {integrity: sha512-l0h88YhZFyKdXIFNfSWpyjStDjGHwZ/U7iobcK1cQQD8sejsONdQtTVU+1wVN1PBw40PiiHB1vA5S7VTfQiP9g==}
 
+  '@msgpack/msgpack@3.1.3':
+    resolution: {integrity: sha512-47XIizs9XZXvuJgoaJUIE2lFoID8ugvc0jzSHP+Ptfk8nTbnR8g788wv48N03Kx0UkAv559HWRQ3yzOgzlRNUA==}
+    engines: {node: '>= 18'}
+
   '@napi-rs/wasm-runtime@0.2.12':
     resolution: {integrity: sha512-ZVWUcfwY4E/yPitQJl481FjFo3K22D6qF0DuFH6Y/nbnE11GY5uguDxZMGXPQ8WQ0128MXQD7TnfHyK4oWoIJQ==}
 
@@ -5856,6 +5863,18 @@ packages:
 
   '@webassemblyjs/wast-printer@1.11.1':
     resolution: {integrity: sha512-IQboUWM4eKzWW+N/jij2sRatKMh99QEelo3Eb2q0qXkvPRISAj8Qxtmw5itwqK+TTkBuUIE45AxYPToqPtL5gg==}
+
+  '@webcontainer/api@1.6.1':
+    resolution: {integrity: sha512-2RS2KiIw32BY1Icf6M1DvqSmcon9XICZCDgS29QJb2NmF12ZY2V5Ia+949hMKB3Wno+P/Y8W+sPP59PZeXSELg==}
+
+  '@webcontainer/snapshot@0.1.0':
+    resolution: {integrity: sha512-PTIGQ3osUpTbK/dqB8RYbcZGv8IK+DJACx709z5sFbeIlngB3hUFpTEYFYs1SbUvr/AEQqvd0/bhc4ectrPRRw==}
+    engines: {node: '>=16'}
+
+  '@webcontainer/test@0.3.0':
+    resolution: {integrity: sha512-Apl27MWndoSKLNWg1dTVa8QjDJbIXBbCP3eLO27xs7g+LyijAktOFqb+CFSJQo8DIdQDjRjvMm7o9B/5behYzw==}
+    peerDependencies:
+      vitest: ^4
 
   '@xmldom/xmldom@0.7.13':
     resolution: {integrity: sha512-lm2GW5PkosIzccsaZIz7tp8cPADSIlIHWDFTR1N0SzfinhhYgeIQjFMz4rYzanCScr3DqQLeomUDArp6MWKm+g==}
@@ -17076,6 +17095,8 @@ snapshots:
 
   '@marijn/find-cluster-break@1.0.2': {}
 
+  '@msgpack/msgpack@3.1.3': {}
+
   '@napi-rs/wasm-runtime@0.2.12':
     dependencies:
       '@emnapi/core': 1.8.1
@@ -19245,6 +19266,18 @@ snapshots:
     dependencies:
       '@webassemblyjs/ast': 1.11.1
       '@xtuc/long': 4.2.2
+
+  '@webcontainer/api@1.6.1': {}
+
+  '@webcontainer/snapshot@0.1.0':
+    dependencies:
+      '@msgpack/msgpack': 3.1.3
+
+  '@webcontainer/test@0.3.0(vitest@4.0.12(@types/debug@4.1.12)(@types/node@24.10.1)(jiti@2.6.1)(jsdom@20.0.3)(less@4.2.0)(sass@1.77.8)(stylus@0.56.0)(terser@5.44.1)(yaml@2.8.0))':
+    dependencies:
+      '@webcontainer/api': 1.6.1
+      '@webcontainer/snapshot': 0.1.0
+      vitest: 4.0.12(@types/debug@4.1.12)(@types/node@24.10.1)(jiti@2.6.1)(jsdom@20.0.3)(less@4.2.0)(sass@1.77.8)(stylus@0.56.0)(terser@5.44.1)(yaml@2.8.0)
 
   '@xmldom/xmldom@0.7.13': {}
 
