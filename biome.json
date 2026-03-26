@@ -299,6 +299,20 @@
       "linter": {
         "rules": {}
       }
+    },
+    {
+      "includes": [
+        "icons/*.json"
+      ],
+      "formatter": {
+        "indentStyle": "space",
+        "indentWidth": 2,
+        "lineEnding": "lf",
+        "lineWidth": 30
+      },
+      "linter": {
+        "rules": {}
+      }
     }
   ],
   "assist": {
