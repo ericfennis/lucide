@@ -43,6 +43,7 @@
   "devDependencies": {
     "@actions/core": "^1.11.1",
     "@actions/github": "^6.0.1",
+    "@biomejs/biome": "2.4.9",
     "@html-eslint/eslint-plugin": "^0.19.1",
     "@html-eslint/parser": "^0.19.1",
     "@octokit/rest": "^19.0.13",
