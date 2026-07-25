@@ -5,6 +5,7 @@
 .now
 .idea
 .env
+.claude
 node_modules
 dist
 build

@@ -1,0 +1,30 @@
+{
+  "$schema": "../icon.schema.json",
+  "contributors": [
+    "ericfennis"
+  ],
+  "use-cases": [
+    "indicating checkout in a property or space rental",
+    "indicating someone leaving the house",
+    "triggering a leaving-home routine in home automation",
+    "logging out of an account"
+  ],
+  "tags": [
+    "home",
+    "living",
+    "building",
+    "residence",
+    "exit",
+    "checkout",
+    "departure",
+    "egress",
+    "sign out",
+    "automation"
+  ],
+  "categories": [
+    "buildings",
+    "home",
+    "arrows",
+    "account"
+  ]
+}
