@@ -18,6 +18,12 @@ pnpm docs:dev
 pnpm dev
 ```
 
+## Environment variables
+
+Copy `.env.example` to `.env` if you need any of them. All variables are optional; see the comments in `.env.example`.
+
+Icon search is powered by Algolia. `scripts/writeAlgoliaIndex.mts` builds one record per icon (core and lab) and uploads it at the end of `pnpm build` on production deployments. Search settings live in that script.
+
 ## Build
 
 ```sh

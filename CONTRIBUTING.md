@@ -172,13 +172,17 @@ To test the docs website locally, follow these steps:
 cd docs
 ```
 
-2. **Start the Local Development Server**
+2. **Optional: configure environment variables**
+
+Copy `docs/.env.example` to `docs/.env`. Everything in it is optional. Icon search uses Algolia; without overrides the site searches the production index, so icons added locally show up in the grid but not in search results until they are released. `ALGOLIA_APP_ID` and `ALGOLIA_ADMIN_API_KEY` are only needed to publish the index, which happens automatically on production builds (or manually with `ALGOLIA_FORCE_INDEX=1 node scripts/writeAlgoliaIndex.mts`).
+
+3. **Start the Local Development Server**
 
 ```sh
   pnpm run docs:dev
 ```
 
-3. **Open the Website Locally**
+4. **Open the Website Locally**
 
 Vitepress should open with the following format:
 

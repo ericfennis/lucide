@@ -65,6 +65,7 @@ docs/.vitepress/data/iconPopularity
 docs/.vitepress/data/lab/iconNodes
 docs/.vitepress/data/lab/iconMetaData.ts
 docs/.vitepress/data/lab/iconPopularity
+docs/.vitepress/data/algoliaRecords.json
 docs/.vercel
 docs/.nitro
 docs/public/og/**
