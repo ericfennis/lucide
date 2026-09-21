@@ -123,7 +123,7 @@ export default defineConfig({
       options: {
         appId: 'R7KKMCPXOB',
         apiKey: 'dd3101054267d35fb28f49c42715f1aa',
-        indexName: 'docs'
+        indexName: 'lucide'
       }
     },
     carbonAds: {
