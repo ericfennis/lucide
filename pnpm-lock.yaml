@@ -191,7 +191,7 @@ importers:
     devDependencies:
       '@docsearch/js':
         specifier: 3.8.2
-        version: 3.8.2(@algolia/client-search@5.57.0)(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(search-insights@2.8.2)
+        version: 3.8.2(@algolia/client-search@5.59.0)(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(search-insights@2.8.2)
       '@lucide/build-icons':
         specifier: workspace:*
         version: link:../tools/build-icons

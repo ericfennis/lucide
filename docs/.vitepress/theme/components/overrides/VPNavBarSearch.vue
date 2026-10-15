@@ -29,6 +29,12 @@ const algolia = computed(
     (theme.value.search?.options ?? theme.value.algolia) as DefaultTheme.AlgoliaSearchOptions,
 )
 
+const { page } = useData();
+
+const isIconPage = computed(() => page.value?.relativePath?.startsWith?.('icons'));
+const isHomePage = computed(() => page.value?.relativePath === 'index.md');
+
+
 // whether this instance is the one rendering the (hidden) search box
 const isOwner = ref(false)
 const shortcutText = ref('')
@@ -114,17 +120,18 @@ function isEditingContent(event: KeyboardEvent): boolean {
     tagName === 'TEXTAREA'
   )
 }
+
 </script>
 
 <template>
-  <div class="VPNavBarSearch">
+  <div class="VPNavBarSearch" v-if="!isIconPage && !isGuide && !isHomePage">
     <FakeInput
       class="nav-search-input"
       :shortcut="shortcutText"
       aria-label="Search"
       @click="open"
     >
-      Search
+      Search docs..
     </FakeInput>
 
     <!-- docsearch renders its own button here; we only need its modal -->
@@ -136,27 +143,38 @@ function isEditingContent(event: KeyboardEvent): boolean {
 
 <style>
 
+.VPNavBarSearch {
+  display: flex;
+  align-items: center;
+}
+
 @media (min-width: 768px) {
   .VPNavBarSearch {
     flex-grow: 1;
-    padding-left: 0px;
+    padding-left: 24px;
   }
 }
 
 @media (min-width: 960px) {
   .VPNavBarSearch {
-    padding-left: 0px;
+    padding-left: 32px;
   }
 }
 
-.VPNavBarSearch {
-  padding-top: 24px;
-}
 
 .VPNavBarSearch .nav-search-input {
   padding: 8px 12px;
   align-items: center;
   width: 100%;
+  max-width: 200px;
+  height: 40px;
+  background-color: var(--vp-c-bg-alt);
+
+}
+
+.VPNavBarSearch .nav-search-input svg {
+  width: 20px;
+  height: 20px;
 }
 
 .VPNavBarSearch .docsearch-host {
