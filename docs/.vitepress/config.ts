@@ -25,7 +25,6 @@ const title = 'Lucide';
 const socialTitle = 'Lucide Icons';
 const description = 'Beautiful & consistent icon toolkit made by the community.';
 
-
 const env = loadEnv(process.env.NODE_ENV, process.cwd());
 
 // https://vitepress.dev/reference/site-config

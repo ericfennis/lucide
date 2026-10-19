@@ -9,17 +9,15 @@ const HITS_PER_PAGE = 1000;
 
 let clientPromise: Promise<LiteClient> | undefined;
 
-
-
 /**
  * Lazily loads the Algolia lite client so it stays out of the initial page bundle.
  * Call it on search input focus to prefetch before the first keystroke.
  */
-export function getAlgoliaClient(algoliaSearchOptions: DefaultTheme.AlgoliaSearchOptions): Promise<LiteClient> {
+export function getAlgoliaClient(
+  algoliaSearchOptions: DefaultTheme.AlgoliaSearchOptions,
+): Promise<LiteClient> {
   clientPromise ??= import('algoliasearch/lite')
-    .then(({ liteClient }) =>
-      liteClient(algoliaSearchOptions.appId, algoliaSearchOptions.apiKey),
-    )
+    .then(({ liteClient }) => liteClient(algoliaSearchOptions.appId, algoliaSearchOptions.apiKey))
     .catch((error) => {
       // Allow a retry on the next call instead of caching the failure.
       clientPromise = undefined;
@@ -41,7 +39,10 @@ const cache = new Map<string, string[]>();
  * Searches the icon index and returns the matching `objectID`s in relevance order.
  * Core icons use their name as `objectID`, lab icons use `lab/<name>`.
  */
-export async function searchIconIds(query: string, algoliaSearchOptions: DefaultTheme.AlgoliaSearchOptions): Promise<string[]> {
+export async function searchIconIds(
+  query: string,
+  algoliaSearchOptions: DefaultTheme.AlgoliaSearchOptions,
+): Promise<string[]> {
   const cached = cache.get(query);
 
   if (cached) {
